@@ -1,6 +1,10 @@
 package com.ravi.cal.Calculator;
 
 import java.util.Scanner;
+import java.util.logging.Logger;
+import org.apache.log4j.*;
+import org.apache.log4j.Level;
+
 
 public class Calculator {
 
@@ -30,22 +34,29 @@ public class Calculator {
 		return first+second;
 	}
 
-
+	
+	private static org.apache.log4j.Logger log = Logger.getLogger(Calculator.class);
+	
+	
 	public static void main(String[] args) {
 		
+		
 		Calculator cc = new Calculator();
-		@SuppressWarnings("resource")
+		//@SuppressWarnings("resource")
 		Scanner sc = new Scanner(System.in);
 		
-		System.out.println("Enter  first Value:");
+		log.debug("Enter first Value");
+		//System.out.println("Enter  first Value:");
 		long first = sc.nextLong();
 		cc.setFirst(first);
-		
-		System.out.println("Enter  second Value:");
+	
+		log.debug("Enter Second Value");
+//		System.out.println("Enter  second Value:");
 		long second = sc.nextLong(); 
 		cc.setSecond(second);
 		
-        System.out.println("The Sum of Two Numbers is:"+cc.addFunc(first, second));		
+        log.debug("The Sum of Two Numbers is:"+cc.addFunc(first, second));
+		// System.out.println("The Sum of Two Numbers is:"+cc.addFunc(first, second));		
 		
 	}
 
