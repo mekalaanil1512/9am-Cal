@@ -1,12 +1,14 @@
 package com.ravi.cal.Calculator;
 
 import java.util.Scanner;
-import java.util.logging.Logger;
-import org.apache.log4j.*;
-import org.apache.log4j.Level;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 
 public class Calculator {
+	
+	static Logger log = LogManager.getLogger(Calculator.class);
 
 	private long first;
 	private long second;
@@ -34,15 +36,14 @@ public class Calculator {
 		return first+second;
 	}
 
-	
-	private static org.apache.log4j.Logger log = Logger.getLogger(Calculator.class);
-	
+
 	
 	public static void main(String[] args) {
 		
 		
 		Calculator cc = new Calculator();
 		//@SuppressWarnings("resource")
+		@SuppressWarnings("resource")
 		Scanner sc = new Scanner(System.in);
 		
 		log.debug("Enter first Value");
