@@ -1,5 +1,6 @@
 package com.ravi.cal.Calculator;
 
+import java.io.PrintStream;
 import java.util.Scanner;
 
 import org.apache.logging.log4j.LogManager;
@@ -36,6 +37,10 @@ public class Calculator {
 		return first+second;
 	}
 
+	public long ProdFunc(long first,long second)
+	{
+		return first*second;
+	}
 
 	
 	public static void main(String[] args) {
@@ -45,15 +50,19 @@ public class Calculator {
 		@SuppressWarnings("resource")
 		Scanner sc = new Scanner(System.in);
 		
-		log.debug("Enter first Value");
+		PrintStream psObj = new PrintStream(System.out);
+		
+		
+		psObj.println("Enter first Value");
 		long first = sc.nextLong();
 		cc.setFirst(first);
 	
-		log.debug("Enter Second Value");
+		psObj.println("Enter Second Value");
 		long second = sc.nextLong(); 
 		cc.setSecond(second);
 		
-        log.debug("The Sum of Two Numbers is:"+cc.addFunc(first, second));	
+		psObj.println("The Sum of Two Numbers is:"+cc.addFunc(first, second));	
+		psObj.println("The Product of Two Numbers is:"+cc.ProdFunc(first, second));	
 		
 	}
 
